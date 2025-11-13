@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 AI Kurdish Story Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="page-header">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="header-content">
+            <h1>AI Kurdish Story Creator</h1>
+            <p>چیرۆکێکی خۆش بۆ منداڵەکەت دروست بکە</p>
+        </div>
+        <div class="sun">☀️</div>
+    </header>
+
+    <main>
+        <div class="creator-form-container card">
+            <h2>✨ Let's create a new story!</h2>
+            <p>Tell the AI what you want the story to be about.</p>
+            
+            <form id="story-form">
+                
+                <label for="story-prompt">What's your story idea?</label>
+                <textarea id="story-prompt" rows="3" placeholder="e.g., A kind girl who shares her food with a cat"></textarea>
+
+                <div class="options-grid">
+                    <div>
+                        <label for="age-group">Age Group</label>
+                        <select id="age-group">
+                            <option value="4-6">🧸 4-6 years old</option>
+                            <option value="7-9">📚 7-9 years old</option>
+                            <option value="10-12">🌍 10-12 years old</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="gender">Main Character</label>
+                        <select id="gender">
+                            <option value="Boy">👦 Boy (کوڕ)</option>
+                            <option value="Girl">👧 Girl (کچ)</option>
+                            <option value="Any">👤 Any (هەرکەسێک)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="dialect">Kurdish Dialect</label>
+                        <select id="dialect">
+                            <option value="Sorani">Sorani (سۆرانی)</option>
+                            <option value="Kurmanji">Kurmanji (کورمانجی)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="generate-btn">
+                    <span class="button-text">Create My Story!</span>
+                </button>
+            </form>
+        </div>
+
+        <div id="loading-container" class="hidden">
+            <div class="book-loader">
+                <div class="book">
+                    <div class="book__page"></div>
+                    <div class="book__page"></div>
+                    <div class="book__page"></div>
+                </div>
+                <div class="book-title">Generating your story...</div>
+            </div>
+            <p>This can take 1-2 minutes. Please wait. 🎨</p>
+        </div>
+
+        <div id="story-output-container">
+            </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <p>Made with ❤️ for Kurdish children.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

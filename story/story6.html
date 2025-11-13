@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barty the Bear's Big Adventure | StoryTime</title>
+    
+    <!-- Load Tailwind CSS (for layout and spacing) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ====================================================================
+        EASY EDIT SETTINGS
+        Updated to a softer, cuter purple/pink theme with enhanced styling!
+        ====================================================================
+        */
+        :root {
+            /* -- Font Settings -- */
+            --font-body: 'Nunito', sans-serif;
+            --font-title: 'Pacifico', cursive;
+
+            /* -- Color Settings -- */
+            --color-page-bg: #fef3f7;         /* Soft light pink/lavender */
+            --color-text-body: #374151;      /* Main text (Darker gray) */
+            --color-text-light: #6b7280;     /* Lighter text */
+            --color-text-muted: #9ca3af;     /* Muted footer text */
+            
+            --color-card-bg: #ffffff;        /* Main story card bg */
+            --color-header-start: #f3e8ff;   /* Header gradient start (Light Lavender) */
+            --color-header-end: #fff0f7;     /* Header gradient end (Very light Pink) */
+            --color-title: #9333ea;          /* Story title (Vibrant Purple) */
+
+            --color-back-button-bg: #ffffff; /* Back button background */
+            --color-back-button-text: #db2777; /* Back button text (Deep Pink) */
+
+            --color-button-read-bg: #ec4899;   /* "Read Aloud" button (Bright Pink) */
+            --color-button-read-text: #ffffff; /* "Read Aloud" text */
+            
+            --color-button-love-bg: #a855f7;   /* "Loved it!" button (Medium Purple) */
+            --color-button-love-text: #ffffff; /* "Loved it!" text */
+
+            --color-button-share-bg: #fef9c3;    /* "Share" button (Soft Cream/Yellow) */
+            --color-button-share-text: #86198f; /* "Share" text (Dark Purple) */
+
+            /* -- Style Settings -- */
+            --card-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.2), 0 8px 10px -6px rgba(168, 85, 247, 0.1); /* Cute Purple Shadow */
+            --card-border-radius: 1.5rem;    /* More rounded corners */
+            --button-border-radius: 9999px;  /* full pill shape */
+            --button-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* ====================================================================
+        CORE STYLES
+        These styles use the variables from above.
+        ====================================================================
+        */
+
+        body {
+            background-color: var(--color-page-bg);
+            color: var(--color-text-body);
+            font-family: var(--font-body);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--color-back-button-bg);
+            color: var(--color-back-button-text);
+            font-weight: 700;
+            padding: 0.75rem 1.5rem; /* Larger padding for easy tapping */
+            border-radius: var(--button-border-radius);
+            box-shadow: var(--button-shadow);
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-2px); /* Subtle lift */
+            box-shadow: 0 6px 10px rgba(219, 39, 119, 0.2); /* Pink shadow on hover */
+        }
+
+        .story-card {
+            background-color: var(--color-card-bg);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--card-shadow);
+            overflow: hidden; 
+        }
+
+        .story-header {
+            background-image: linear-gradient(to bottom right, var(--color-header-start), var(--color-header-end));
+            text-align: center;
+        }
+
+        .story-title {
+            font-family: var(--font-title);
+            color: var(--color-title);
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); /* Cute text shadow */
+        }
+
+        .story-meta {
+            color: var(--color-text-light);
+            font-size: 1.125rem; 
+        }
+        
+        .story-image {
+            border-radius: 1rem; /* slightly less rounded than card */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .story-text {
+            color: var(--color-text-body);
+            font-size: 1.125rem; 
+            line-height: 1.8;   /* Slightly more spacing for readability */
+        }
+        @media (min-width: 768px) {
+            .story-text {
+                font-size: 1.25rem; 
+            }
+        }
+
+        .story-options-container {
+            background-color: #fcf8fd; /* Very light background for footer */
+            border-top: 1px solid #f3e8ff; /* Light purple border */
+        }
+
+        .story-options-title {
+            font-size: 1.25rem; 
+            font-weight: 700;
+            text-align: center;
+            color: var(--color-title); 
+        }
+        
+        .story-button {
+            text-align: center;
+            font-weight: 800; /* Bolder text */
+            padding: 0.9rem 2.2rem; /* Even larger buttons */
+            border-radius: var(--button-border-radius);
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.2); /* Stronger button shadow */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy transition */
+            transform-origin: center;
+        }
+        .story-button:hover {
+            transform: scale(1.08) translateY(-2px); /* Bounce and lift on hover */
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .story-button-read {
+            background-color: var(--color-button-read-bg);
+            color: var(--color-button-read-text);
+        }
+        .story-button-read:hover {
+            background-color: #e51d8d; /* Slightly darker pink */
+        }
+
+        .story-button-love {
+            background-color: var(--color-button-love-bg);
+            color: var(--color-button-love-text);
+        }
+        .story-button-love:hover {
+            background-color: #8c2ee8; /* Slightly darker purple */
+        }
+
+        .story-button-share {
+            background-color: var(--color-button-share-bg);
+            color: var(--color-button-share-text);
+            border: 2px solid var(--color-button-share-text); /* Highlight share button */
+        }
+        .story-button-share:hover {
+            background-color: #fffcee; /* even lighter */
+        }
+
+        .site-footer {
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.875rem; 
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Page Container (uses Tailwind for layout) -->
+    <div class="container mx-auto p-4 md:p-8 min-h-screen">
+
+        <!-- Back Button (uses Tailwind for layout) -->
+        <div class="mb-6">
+            <a href="../main.html" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                گەڕانەوە بۆ چیرۆکەکان
+            </a>
+        </div>
+
+        <!-- Story Card (uses Tailwind for layout) -->
+        <main class="story-card max-w-3xl mx-auto">
+            
+            <!-- Story Header (uses Tailwind for layout) -->
+            <div class="story-header p-6 md:p-10">
+                <h1 class="story-title text-4xl md:text-6xl mb-4">
+                       پاشا گرەوەکەی دۆڕاند  ✨
+                </h1>
+                <p class="story-meta">
+                    لەلایەن ڕاڕ | 📚 ٥ خولەک خوێندنەوە
+                </p>
+            </div>
+
+            <!-- Story Image (uses Tailwind for layout) -->
+            <div class="p-6 md:p-10">
+                <img src="../img/king.jpg" 
+                     alt="Barty the Bear's Adventure"
+                     class="story-image w-full h-auto object-cover"
+                     onerror="this.src='https://placehold.co/800x400/FEE2F0/581C87?text=Story+Image+Here!'; this.onerror=null;">
+            </div>
+
+            <!-- Story Content (uses Tailwind for layout) -->
+            <article class="p-6 md:p-10 pt-0">
+                <div class="story-text space-y-6">
+                  <p>
+٢ ـ پاشا گرەوەکەی دۆڕاند :<br><br>
+
+پاشایەک هەبوو، زۆر حەزی لە پێکەنین و قسەی خۆش و فشە و فیشاڵ و درۆ دەکرد .. رۆژێک پاشا گرەوێکی راگەیاند، گوتی : " هەچ کەسێک، هەر درۆزنێک، درۆیەکم بۆ بکات و، بڕوا بە درۆکەی بکەم، ئەگەر پێم گوت ـ درۆدەکەی ـ بەڵێن بێت، نیوەی وڵاتەکەمی پێشکەش دەکەم .. " .. درۆزنەکان بۆ بردنەوەی گرەوەکە کەوتنە خۆیان.<br><br>
+
+رۆژی یەکەم، بەرگدروویەک چوو بۆ لای پاشا و، گوتی : " خاوەن شکۆ، ئەم نێوەڕۆیە بینیم، ئاسمان دڵی دڕاوە و، ئاوی لێدەچێت، منیش بە پەلە مەکینەکەم هەڵگرت و، فڕیم بۆ ئاسمان و، بە چرکە ساتێک جوان دڵی ئاسمانم دوورییەوە "<br><br>
+
+پاشا : " دەستەکانت خۆشبێ، کارێکی چاکت کردووە "<br><br>
+
+بەرگدرووەکە بەبێ ئومێدی گەڕایەوە .. چونکە پاشا پێی نەوت درۆدەکەی .<br><br>
+
+رۆژی دووەم، شوانێک چوو بۆ لای پاشا و گوتی : " خاوەن شکۆ، من منداڵ بووم، باپیرم قەڵەنگێکی زۆر درێژی هەبوو، سەد باڵ درێژ بوو، بە چاوی خۆم بینیم باپیرم لە دوورەوە بەو قەڵەنگەی مەڕەکانی پێ لێدەخوڕی .. "<br><br>
+
+پاشا بە شوانەکەی گوت : " ئەو قەڵەنگەی باپیرت، لە شوولکی چەمەکەی باپیری من بڕی بووی، لەو کاتەدا، چەمەکەی باپیرم، شوولکەداری لەوەش بەرزتری تێدا بوو "<br><br>
+
+شوانەکەش بەبێ ئۆمیدی دەرچوو، چونکە پاشا بە ئەمیشی نەوت درۆدەکەی .<br><br>
+
+رۆژی سێیەم، پیاوێکی هەژا، قزناغێکی گەنم پێوانی پێبوو، چووە لە بەردەمی پاشا دا، وەستا و سەیری دەکرد، بێ ئەوەی هیچ قسەیەک بکات .<br><br>
+
+پاشا : " ها مامە گیان، چیت دەوێت ؟ ئەو قزناغە دارە چییە بە دەستەوە ..؟! "<br><br>
+
+پیاوە هەژارەکە : " خاوەن شکۆ، ساڵی پار، دە قزانغ بەم قزناغە، زێڕی خاوێنت لە من قەرزکرد .. هاتووم قەرزەکەم بدەیتەوە "<br><br>
+
+پاشا ـ بە تووڕییەوە : " ئەوە دەڵێی چی .. ؟ من زێڕم لە تۆ قەرزکردووە .. ؟! "<br><br>
+
+پیاوە هەژارە : " بەڵی خاوەن شکۆ، دیارە لە یادت نەماوە .. یان ناتەوێ بمدەیتەوە "<br><br>
+
+پاشا : " درۆدەکەی "<br><br>
+
+پیاوە هەژارەکە : " کەواتە گرەوەکەم لێت بردەوە، چونکە تۆ بەڵێنت دا، بە هەرکەسێ بڵێیت ـ درۆدەکەی ـ نیوەی وڵاتەکەتی پێشکەش بکەیت .. ئێستاش خۆت یەکلایی بکەرەوە .. یا دە قزناغ زێڕم بدەرێ، یا نیوەی وڵاتەکەتم بدەرێ . کامیانم دەدەیەتێ ؟ "<br><br>
+
+پاشا لە زیرەکی ئەم پیاوە هەژارە سەری سوڕما .. دانی بە دۆڕاندنەکەیدا نا و، ناچار بوو کە یەکێکیان قبووڵ بکات .
+</p>
+
+
+                </div>
+            </article>
+
+            <!-- Story Options / Footer (uses Tailwind for layout) -->
+            <footer class="story-options-container p-6 md:p-10">
+                <h3 class="story-options-title mb-6">ڕات چییە؟</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    
+                    <!-- Option Button 1 -->
+                    <button class="story-button story-button-read flex-grow sm:flex-grow-0">
+                        خوێندنەوەی دەنگی 🔊
+                    </button>
+                    
+                    <!-- Option Button 2 -->
+                    <button class="story

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ku">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>چیرۆکەکانی خووەکان - چوونەژوورەوە</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <div class="center-viewport">
+    <div class="center-box">
+      <div class="logo-section">
+        <img src="img/moon.png" alt="moon logo" class="logo" />
+        <h1>چیرۆکی منداڵان </h1>
+        <p>
+          بەخێربێن بۆ یەکەمین ماڵپەری چیرۆکی منداڵان<br> بە زمانی شیرینی کوردی
+        </p>
+      </div>
+      <form class="story-form">
+         <input type="text" name="userName" placeholder="نازناو " required />
+        <input
+          type="password"
+          name="password"
+          placeholder="وشەی نهێنی"
+          required
+        />
+        <div class="btn-group">
+          <!--<button type="button" class="login-btn" style=" background: #a489fa;
+          color: #fff;" >چوونە ژوورەوە</button> -->
+         <!-- Replace the anchor with this -->
+<a href="#" id="login-link" class="login-btn">چوونە ژوورەوە</a>
+
+        </div>
+      </form>
+      <div class="cute-graphic"></div>
+    </div>
+
+    <script>
+document.getElementById('login-link').addEventListener('click', function(event) {
+  event.preventDefault();
+  // Get the values from the form
+  var username = document.querySelector('input[name="userName"]').value;
+  var password = document.querySelector('input[name="password"]').value;
+  // Check credentials
+  if (username === 'rozyar' && password === '1234') {
+    window.location.href = 'main.html';
+  } else {
+    alert('نازناو یان وشەی نهێنی هەڵە');
+  }
+});
+</script>
+
+  </body>
+</html>
