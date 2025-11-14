@@ -282,9 +282,25 @@
                 <h3 class="story-options-title mb-6">ڕات چییە؟</h3>
                 <div class="flex flex-wrap justify-center gap-4">
                     
-           <audio controls class="audio-read-button">
-    <source src="https://rozyar005.github.io/Story/Story_Sound/ant.mp3" type="audio/mpeg">
+       <button id="toggle-sound" class="story-button story-button-read">
+    🔊 خوێندنەوەی دەنگی
+</button>
+
+<audio id="audio">
+  <source src="https://rozyar005.github.io/Story/Story_Sound/ant.mp3">
 </audio>
+
+<script>
+  const audio = document.getElementById("audio");
+  document.getElementById("toggle-sound").onclick = () => {
+      if (audio.paused) {
+          audio.play();
+      } else {
+          audio.pause();
+      }
+  };
+</script>
+
 
 
                     
