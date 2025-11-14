@@ -281,25 +281,29 @@
             <footer class="story-options-container p-6 md:p-10">
                 <h3 class="story-options-title mb-6">ڕات چییە؟</h3>
                 <div class="flex flex-wrap justify-center gap-4">
-                    
-       <button id="toggle-sound" class="story-button story-button-read">
-    🔊 خوێندنەوەی دەنگی
-</button>
-
-<audio id="audio">
-  <source src="https://rozyar005.github.io/Story/Story_Sound/ant.mp3">
+  <audio
+  id="narration"
+  src="https://rozyar005.github.io/dinosaur-ar/Dinosaurs.mp3">
 </audio>
 
-<script>
-  const audio = document.getElementById("audio");
-  document.getElementById("toggle-sound").onclick = () => {
-      if (audio.paused) {
-          audio.play();
-      } else {
-          audio.pause();
-      }
-  };
-</script>
+<div class="flex gap-4 mt-4">
+
+  <!-- PLAY -->
+  <button 
+    class="story-button story-button-read flex-grow sm:flex-grow-0"
+    onclick="document.getElementById('narration').play()">
+      🔊 خوێندنەوەی دەنگی
+  </button>
+
+  <!-- PAUSE -->
+  <button 
+    class="story-button story-button-love flex-grow sm:flex-grow-0"
+    onclick="document.getElementById('narration').pause()">
+      ⏸️ پشکنین
+  </button>
+
+</div>
+
 
 
 
