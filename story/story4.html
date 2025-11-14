@@ -176,6 +176,53 @@
             color: var(--color-text-muted);
             font-size: 0.875rem; 
         }
+         /* Make the audio player look like your pink Read-Aloud button */
+.audio-read-button {
+    width: 100%;
+    max-width: 320px;
+    background-color: var(--color-button-read-bg);
+    border-radius: var(--button-border-radius);
+    box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.2);
+    padding: 0.9rem 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    outline: none;
+}
+
+/* Remove default background */
+.audio-read-button::-webkit-media-controls-panel {
+    background-color: var(--color-button-read-bg);
+    border-radius: var(--button-border-radius);
+}
+
+/* Style the play button */
+.audio-read-button::-webkit-media-controls-play-button {
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: scale(1.4);
+}
+
+/* Style the timeline bar */
+.audio-read-button::-webkit-media-controls-timeline {
+    background-color: #ffffff80;
+    border-radius: 10px;
+}
+
+/* Style elapsed + remaining time text */
+.audio-read-button::-webkit-media-controls-current-time-display,
+.audio-read-button::-webkit-media-controls-time-remaining-display {
+    color: white;
+    font-weight: 700;
+}
+
+/* Hover effect to match your buttons */
+.audio-read-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #e51d8d;
+}
 
     </style>
 </head>
@@ -266,10 +313,28 @@
                 <h3 class="story-options-title mb-6">ڕات چییە؟</h3>
                 <div class="flex flex-wrap justify-center gap-4">
                     
-                    <!-- Option Button 1 -->
-                    <button class="story-button story-button-read flex-grow sm:flex-grow-0">
-                        خوێندنەوەی دەنگی 🔊
-                    </button>
-                    
+                 <audio
+  id="narration"
+   src="https://rozyar005.github.io/Story/Story_Sound/fox.mp3">
+</audio>
+
+<div class="flex gap-4 mt-4">
+
+  <!-- PLAY -->
+  <button 
+    class="story-button story-button-read flex-grow sm:flex-grow-0"
+    onclick="document.getElementById('narration').play()">
+      🔊 خوێندنەوەی دەنگی
+  </button>
+
+  <!-- PAUSE -->
+  <button 
+    class="story-button story-button-love flex-grow sm:flex-grow-0"
+    onclick="document.getElementById('narration').pause()">
+      ⏸️ وەستان
+  </button>
+
+</div>
+
                     <!-- Option Button 2 -->
                     <button class="story
