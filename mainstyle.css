@@ -238,6 +238,7 @@ body::before {
   margin-top: .7em;
   display: inline-block;
   align-self: flex-end;
+  border: none;
 }
 
 /* Footer */

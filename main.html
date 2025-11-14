@@ -116,6 +116,39 @@
         </div>
       </div>
     </div>
+    <audio id="pageAudio" autoplay muted>
+      <source src="https://rozyar005.github.io/Story/Story_Sound/body.mp3" />
+    </audio>
+
+    <script>
+      window.addEventListener("load", () => {
+        const audio = document.getElementById("pageAudio");
+
+        // Start muted (required)
+        audio.play();
+
+        // After it starts, unmute it
+        setTimeout(() => {
+          audio.muted = false;
+        }, 300);
+      });
+    </script>
+
+    <!-- Pause button -->
+    <button
+      class="read-link"
+      onclick="document.getElementById('pageAudio').pause()"
+    >
+      ⏸ وەستان
+    </button>
+    <!-- PLAY -->
+    <button
+      class="read-link"
+      onclick="document.getElementById('pageAudio').play()"
+    >
+      🔊 دەنگ
+    </button>
+
     <footer>
       <div>
         © 2025 چیرۆکی منداڵان - هەموو مافەکان پارێزراون بە تیمی ڕۆزیار - ڕۆزی -
