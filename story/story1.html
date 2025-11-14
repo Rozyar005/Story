@@ -235,9 +235,18 @@
                 <div class="flex flex-wrap justify-center gap-4">
                     
                     <!-- Option Button 1 -->
-                    <button class="story-button story-button-read flex-grow sm:flex-grow-0">
-                         🔊 خوێندنەوەی دەنگی 
-                    </button>
+                   <button id="play-audio-btn" class="story-button story-button-read flex-grow sm:flex-grow-0">
+    🔊 خوێندنەوەی دەنگی
+</button>
+<script>
+    const audio = new Audio("https://rozyar005.github.io/Story/Story_Sound/ant.mp3");
+
+    document.getElementById("play-audio-btn").addEventListener("click", () => {
+        audio.currentTime = 0;  // restart each time
+        audio.play();
+    });
+</script>
+
                     
                     <!-- Option Button 2 -->
                     <button class="story
