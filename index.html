@@ -1,88 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌙 AI Kurdish Story Creator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>چیرۆک - Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <header class="page-header">
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
-        <div class="cloud cloud-3"></div>
-        <div class="header-content">
-            <h1>AI Kurdish Story Creator</h1>
-            <p>چیرۆکێکی خۆش بۆ منداڵەکەت دروست بکە</p>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+      }
+
+      .kurdish-text {
+        font-family: "Noto Sans Arabic", sans-serif;
+        direction: rtl;
+        text-align: right;
+      }
+
+      .latin-text {
+        font-family: "Poppins", sans-serif;
+        direction: ltr;
+        text-align: center;
+      }
+
+      .welcome-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center; /* vertically center */
+        justify-content: center; /* horizontally center */
+        text-align: center; /* ensures text is centered */
+        background: linear-gradient(
+          135deg,
+          #9333ea 0%,
+          #a855f7 40%,
+          #fbbf24 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .content {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column; /* stack items vertically */
+        align-items: center; /* horizontally center items */
+        justify-content: center; /* vertically center content inside container */
+        text-align: center;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .stars-background {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .star {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.2);
+        animation: twinkle 3s ease-in-out infinite;
+      }
+
+      .moon-icon {
+        width: 128px;
+        height: 128px;
+        margin: 0 auto 2rem;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.5));
+      }
+
+      .sparkle-icon {
+        width: 48px;
+        height: 48px;
+        color: #fcd34d;
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      .main-title {
+        font-size: 6rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        color: white;
+        text-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        animation: scaleIn 0.6s ease-out;
+      }
+
+      .subtitle-kurdish {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1rem;
+        text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.8s ease-out 0.3s backwards;
+      }
+
+      .subtitle-english {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.8s ease-out 0.6s backwards;
+      }
+
+      .loading-dots {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        animation: fadeIn 0.8s ease-out 0.9s backwards;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        background-color: white;
+        border-radius: 50%;
+        animation: bounce 1.4s ease-in-out infinite;
+      }
+
+      .dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 3rem;
+        }
+        .subtitle-kurdish {
+          font-size: 1.5rem;
+        }
+        .moon-icon {
+          width: 96px;
+          height: 96px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="welcome-container">
+      <!-- Stars Background -->
+      <div class="stars-background" id="stars"></div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <div style="position: relative; display: inline-block">
+          <!-- Moon Icon -->
+          <svg
+            class="moon-icon"
+            fill="white"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+            />
+          </svg>
+          <!-- Sparkle Icon -->
+          <svg
+            class="sparkle-icon"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 22.5l-.394-1.933a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+            />
+          </svg>
         </div>
-        <div class="sun">☀️</div>
-    </header>
 
-    <main>
-        <div class="creator-form-container card">
-            <h2>✨ Let's create a new story!</h2>
-            <p>Tell the AI what you want the story to be about.</p>
-            
-            <form id="story-form">
-                
-                <label for="story-prompt">What's your story idea?</label>
-                <textarea id="story-prompt" rows="3" placeholder="e.g., A kind girl who shares her food with a cat"></textarea>
+        <h1 class="main-title kurdish-text">چیرۆکی منداڵان</h1>
 
-                <div class="options-grid">
-                    <div>
-                        <label for="age-group">Age Group</label>
-                        <select id="age-group">
-                            <option value="4-6">🧸 4-6 years old</option>
-                            <option value="7-9">📚 7-9 years old</option>
-                            <option value="10-12">🌍 10-12 years old</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="gender">Main Character</label>
-                        <select id="gender">
-                            <option value="Boy">👦 Boy (کوڕ)</option>
-                            <option value="Girl">👧 Girl (کچ)</option>
-                            <option value="Any">👤 Any (هەرکەسێک)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="dialect">Kurdish Dialect</label>
-                        <select id="dialect">
-                            <option value="Sorani">Sorani (سۆرانی)</option>
-                            <option value="Kurmanji">Kurmanji (کورمانجی)</option>
-                        </select>
-                    </div>
-                </div>
+        <p class="subtitle-kurdish kurdish-text">
+          جیهانێکی پڕ لە چیرۆک و خەیاڵ
+        </p>
 
-                <button type="submit" id="generate-btn">
-                    <span class="button-text">Create My Story!</span>
-                </button>
-            </form>
+        <p class="subtitle-english latin-text">
+          A world full of stories and imagination
+        </p>
+
+        <!-- Loading Dots -->
+        <div class="loading-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
+      </div>
+    </div>
 
-        <div id="loading-container" class="hidden">
-            <div class="book-loader">
-                <div class="book">
-                    <div class="book__page"></div>
-                    <div class="book__page"></div>
-                    <div class="book__page"></div>
-                </div>
-                <div class="book-title">Generating your story...</div>
-            </div>
-            <p>This can take 1-2 minutes. Please wait. 🎨</p>
-        </div>
+    <script>
+      // Generate random stars
+      const starsContainer = document.getElementById("stars");
+      for (let i = 0; i < 30; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        star.innerHTML = "★";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.fontSize = Math.random() * 20 + 10 + "px";
+        star.style.animationDelay = Math.random() * 3 + "s";
+        starsContainer.appendChild(star);
+      }
 
-        <div id="story-output-container">
-            </div>
-
-    </main>
-
-    <footer class="page-footer">
-        <p>Made with ❤️ for Kurdish children.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+      // Auto-redirect after 3.5 seconds
+      setTimeout(function () {
+        window.location.href = "/main.html"; // Change this to your main page URL
+      }, 3500);
+    </script>
+  </body>
 </html>
