@@ -239,10 +239,27 @@
                 <h3 class="story-options-title mb-6">ڕات چییە؟</h3>
                 <div class="flex flex-wrap justify-center gap-4">
                     
-                    <!-- Option Button 1 -->
-                    <button class="story-button story-button-read flex-grow sm:flex-grow-0">
-                        🔊 خوێندنەوەی دەنگی
-                    </button>
-                    
+                  <audio
+  id="narration"
+   src="https://rozyar005.github.io/Story/Story_Sound/eagle.mp3">
+</audio>
+
+<div class="flex gap-4 mt-4">
+
+  <!-- PLAY -->
+  <button 
+    class="story-button story-button-read flex-grow sm:flex-grow-0"
+    onclick="document.getElementById('narration').play()">
+      🔊 خوێندنەوەی دەنگی
+  </button>
+
+  <!-- PAUSE -->
+  <button 
+    class="story-button story-button-love flex-grow sm:flex-grow-0"
+    onclick="document.getElementById('narration').pause()">
+      ⏸️ وەستان
+  </button>
+
+</div>
                     <!-- Option Button 2 -->
                     <button class="story
