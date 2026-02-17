@@ -21,7 +21,7 @@ This project runs on standard web technologies, keeping it lightweight and fast.
 | Component | Technology | Why it's here |
 | :--- | :--- | :--- |
 | **Core Structure** | **HTML5** | The skeleton of every page (`index.html`, `main.html`). |
-| **Styling** | **CSS3** | Handles the visual theme (`style.css`, `signup.css`). likely includes **Bootstrap** for responsive grids (`mb-2` classes). |
+| **Styling** | **CSS3** | Handles the visual theme (`style.css`, `signup.css`) |
 | **Logic** | **JavaScript (ES6)** | Powers the interactivity, form validation, and audio control (`script.js`). |
 | **Assets** | **MP3/WAV** | Audio files stored in `Story_Sound` for background ambience. |
 
